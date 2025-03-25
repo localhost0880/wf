@@ -1,3 +1,63 @@
+
+function validateForm() {
+    let firstname = document.getElementById("fname").value.trim();
+    let lastname = document.getElementById("lname").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let prn = document.getElementById("prn").value.trim();
+    let id = document.getElementById("id").value.trim();
+    let salary = document.getElementById("salary").value.trim();
+    let dob = document.getElementById("dob").value;
+    let joiningDate = document.getElementById("joiningDate").value;
+
+    let nameRegex = /^[a-zA-Z]+$/;
+    let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
+
+    if (
+        firstname === "" || lastname === "" || email === "" || prn === "" ||
+        id === "" || salary === "" || dob === "" || joiningDate === ""
+    ) {
+        alert("❌ Please fill in all fields");
+        return false;
+    }
+
+    if (!nameRegex.test(firstname)) {
+        alert("❌ First name should only contain alphabets");
+        return false;
+    }
+
+    if (!nameRegex.test(lastname)) {
+        alert("❌ Last name should only contain alphabets");
+        return false;
+    }
+
+    if (!emailRegex.test(email)) {
+        alert("❌ Please enter a valid email address");
+        return false;
+    }
+
+    if (prn.length > 12) {
+        alert("❌ PRN No. should not exceed 12 digits");
+        return false;
+    }
+
+    let dobDate = new Date(dob);
+    let joiningDateObj = new Date(joiningDate);
+    let ageDiff = joiningDateObj.getFullYear() - dobDate.getFullYear();
+
+    if (ageDiff < 20) {
+        alert("❌ Date of Birth should be at least 20 years before the joining date");
+        return false;
+    }
+
+    alert("✅ Form submitted successfully!");
+    return true;
+}
+
+function toUppercase(input) {
+    input.value = input.value.toUpperCase();
+}
+
+----------------------------------------------------------------------------------------------
 # Student registration js
 Index.html
 <!DOCTYPE html>
