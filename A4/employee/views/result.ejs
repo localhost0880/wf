@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Employee Information</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Position</th>
+                <th>Salary ($)</th>
+            </tr>
+            <tr>
+                <td><%= employee.name %></td>
+                <td><%= employee.email %></td>
+                <td><%= employee.position %></td>
+                <td><%= employee.salary %></td>
+            </tr>
+        </table>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>
+
